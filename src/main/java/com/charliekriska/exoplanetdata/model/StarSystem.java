@@ -1,0 +1,20 @@
+package com.charliekriska.exoplanetdata.model;
+
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+@Builder
+public class StarSystem {
+    private Star host;
+    private double rightAscension;
+    private double declination;
+    private double galacticLatitude;
+    private double galacticLongitude;
+    private double eclipticLatitude;
+    private double eclipticLongitude;
+    private double distance;
+    private List<Planet> planets;
+}
