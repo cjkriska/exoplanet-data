@@ -12,7 +12,7 @@ public class Star {
     private double radius;
     private double mass;
     private double stellarMetallicity;
-    private double metallicityRatio;
+    private String metallicityRatio;
     private double luminosity;
     private double age;
     private double density;
