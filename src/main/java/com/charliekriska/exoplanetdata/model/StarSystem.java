@@ -16,5 +16,8 @@ public class StarSystem {
     private double eclipticLatitude;
     private double eclipticLongitude;
     private double distance;
+    private int numPlanets;
+    private int numStars;
+    private int numMoons;
     private List<Planet> planets;
 }
