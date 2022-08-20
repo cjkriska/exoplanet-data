@@ -3,12 +3,9 @@ package com.charliekriska.exoplanetdata.dao;
 import com.charliekriska.exoplanetdata.dto.PlanetDto;
 import com.charliekriska.exoplanetdata.dto.StarDto;
 import com.charliekriska.exoplanetdata.dto.StarSystemDto;
-import com.charliekriska.exoplanetdata.model.Star;
-import com.charliekriska.exoplanetdata.model.StarSystem;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.util.List;
 
