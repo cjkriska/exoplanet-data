@@ -4,6 +4,7 @@ import com.charliekriska.exoplanetdata.config.Config;
 import com.charliekriska.exoplanetdata.dto.PlanetDto;
 import com.charliekriska.exoplanetdata.dto.StarDto;
 import com.charliekriska.exoplanetdata.dto.StarSystemDto;
+import com.charliekriska.exoplanetdata.utility.SampleData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
@@ -38,7 +39,7 @@ public class ExoPlanetDbImplTest {
         mockServer.enqueue(new MockResponse()
                 .setResponseCode(200)
                 .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .setBody(mapper.writeValueAsString(getSamplePlanetDtoList())));
+                .setBody(mapper.writeValueAsString(SampleData.getSamplePlanetDtoList())));
 
         List<PlanetDto> planetDtos = exoPlanetDao.getAllPlanetData();
         assertEquals(planetDtos.get(0).getPl_name(), "Planet 1");
@@ -50,7 +51,7 @@ public class ExoPlanetDbImplTest {
         mockServer.enqueue(new MockResponse()
                 .setResponseCode(200)
                 .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .setBody(mapper.writeValueAsString(getSampleStarDtoList())));
+                .setBody(mapper.writeValueAsString(SampleData.getSampleStarDtoList())));
 
         List<StarDto> starDtos = exoPlanetDao.getAllStarData();
         assertEquals(starDtos.get(0).getHostname(), "hostname 1");
@@ -62,100 +63,14 @@ public class ExoPlanetDbImplTest {
         mockServer.enqueue(new MockResponse()
                 .setResponseCode(200)
                 .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .setBody(mapper.writeValueAsString(getSampleStarSystemDtoList())));
+                .setBody(mapper.writeValueAsString(SampleData.getSampleStarSystemDtoList())));
 
         List<StarSystemDto> starSystemDtos = exoPlanetDao.getAllStarSystemData();
         assertEquals(starSystemDtos.get(0).getHostname(), "hostname 1");
-        assertEquals(starSystemDtos.get(0).getSy_dist(), 5.9);
+        assertEquals(starSystemDtos.get(0).getRa(), 1.2);
         assertEquals(starSystemDtos.get(1).getHostname(), "hostname 2");
-        assertEquals(starSystemDtos.get(1).getSy_dist(), 4.8);
+        assertEquals(starSystemDtos.get(1).getRa(), 2.7);
 
-    }
-
-    private List<PlanetDto> getSamplePlanetDtoList() {
-        PlanetDto dto1 = PlanetDto.builder()
-                .pl_name("Planet 1")
-                .hostname("hostname 1")
-                .pl_letter("a")
-                .discoverymethod("transit")
-                .disc_year(2022)
-                .pl_orbper(12.34)
-                .pl_orbsmax(23.45)
-                .pl_rade(34.56)
-                .pl_bmasse(45.67)
-                .pl_dens(56.78)
-                .pl_orbeccen(0.5)
-                .pl_eqt(273.4)
-                .build();
-        PlanetDto dto2 = PlanetDto.builder()
-                .pl_name("Planet 2")
-                .hostname("hostname 2")
-                .pl_letter("b")
-                .discoverymethod("transit")
-                .disc_year(2021)
-                .pl_orbper(12.34)
-                .pl_orbsmax(23.45)
-                .pl_rade(34.56)
-                .pl_bmasse(45.67)
-                .pl_dens(56.78)
-                .pl_orbeccen(0.5)
-                .pl_eqt(273.4)
-                .build();
-        return List.of(dto1, dto2);
-    }
-
-    private List<StarDto> getSampleStarDtoList() {
-        StarDto dto1 = StarDto.builder()
-                .hostname("hostname 1")
-                .st_spectype("M")
-                .st_teff(12.34)
-                .st_rad(23.45)
-                .st_mass(34.56)
-                .st_met(45.67)
-                .st_metratio("[]")
-                .st_lum(0.5)
-                .st_age(273.4)
-                .build();
-        StarDto dto2 = StarDto.builder()
-                .hostname("hostname 2")
-                .st_spectype("M")
-                .st_teff(12.34)
-                .st_rad(23.45)
-                .st_mass(34.56)
-                .st_met(45.67)
-                .st_metratio("[]")
-                .st_lum(0.5)
-                .st_age(273.4)
-                .build();
-        return List.of(dto1, dto2);
-    }
-
-    private List<StarSystemDto> getSampleStarSystemDtoList() {
-        StarSystemDto dto1 = StarSystemDto.builder()
-                .hostname("hostname 1")
-                .st_spectype("M")
-                .st_teff(12.34)
-                .st_rad(23.45)
-                .st_mass(34.56)
-                .st_met(45.67)
-                .st_metratio("[]")
-                .st_lum(0.5)
-                .st_age(273.4)
-                .sy_dist(5.9)
-                .build();
-        StarSystemDto dto2 = StarSystemDto.builder()
-                .hostname("hostname 2")
-                .st_spectype("M")
-                .st_teff(12.34)
-                .st_rad(23.45)
-                .st_mass(34.56)
-                .st_met(45.67)
-                .st_metratio("[]")
-                .st_lum(0.5)
-                .st_age(273.4)
-                .sy_dist(4.8)
-                .build();
-        return List.of(dto1, dto2);
     }
 
 }

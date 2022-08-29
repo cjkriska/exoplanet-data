@@ -13,6 +13,8 @@ import java.util.List;
 @UtilityClass
 public class ExoPlanetTransformer {
 
+    private final double PARSEC_MULTIPLIER = 3.26156;
+
     // --- Transformers ---------------------------------
     public Planet planetDtoToPlanet(PlanetDto dto) {
         return Planet.builder()
@@ -98,6 +100,6 @@ public class ExoPlanetTransformer {
     }
 
     private double convertParsecsToLightYears(double parsecs) {
-        return parsecs * 3.26156;
+        return parsecs * PARSEC_MULTIPLIER;
     }
 }
