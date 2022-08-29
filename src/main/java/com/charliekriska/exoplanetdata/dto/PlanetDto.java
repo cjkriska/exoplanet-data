@@ -1,10 +1,14 @@
 package com.charliekriska.exoplanetdata.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PlanetDto {
     private String pl_name;
     private String hostname;
