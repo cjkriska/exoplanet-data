@@ -38,7 +38,7 @@ public class ExoPlanetDaoImpl implements ExoPlanetDao {
         return getData(config.getSystemDataQuery()).bodyToMono(new ParameterizedTypeReference<List<StarSystemDto>>() {}).block();
     }
 
-    public WebClient.ResponseSpec getData(String query) {
+    private WebClient.ResponseSpec getData(String query) {
         return client
                 .get()
                 .uri(uriBuilder -> uriBuilder
