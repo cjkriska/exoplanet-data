@@ -58,6 +58,14 @@ public class SampleData {
         return List.of(dto1, dto2);
     }
 
+    public List<StarDto> getSampleStarDtoListWithDuplicates() {
+        StarDto dto1 = getStarDto();
+        StarDto dto2 = getStarDto();
+        dto2.setHostname("hostname 2");
+        StarDto dto3 = getStarDto();
+        return List.of(dto1, dto2, dto3);
+    }
+
     public StarSystemDto getStarSystemDto() {
         return StarSystemDto.builder()
                 .hostname("hostname 1")
@@ -81,6 +89,18 @@ public class SampleData {
         dto2.setHostname("hostname 2");
         dto2.setRa(2.7);
         return List.of(dto1, dto2);
+    }
+
+    public List<StarSystemDto> getStarSystemDtoListDuplHostsMultPlanets() {
+        StarSystemDto dto1 = getStarSystemDto();
+        StarSystemDto dto2 = getStarSystemDto();
+        dto2.setPl_name("Mars");
+        StarSystemDto dto3 = getStarSystemDto();
+        dto3.setPl_name("Jupiter");
+        StarSystemDto dto4 = getStarSystemDto();
+        dto4.setHostname("hostname 2");
+        dto4.setPl_name("Kepler-17 b");
+        return List.of(dto1, dto2, dto3, dto4);
     }
 
 }

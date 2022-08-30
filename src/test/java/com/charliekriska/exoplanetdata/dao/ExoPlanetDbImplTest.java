@@ -26,7 +26,7 @@ public class ExoPlanetDbImplTest {
     private final ObjectMapper mapper = new ObjectMapper();
 
     @BeforeEach
-    public void initialize() {
+    public void init() {
         mockServer = new MockWebServer();
         Config config = new Config();
         config.setBaseUrl(mockServer.url("/").url().toString());
