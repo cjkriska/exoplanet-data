@@ -9,3 +9,6 @@ webclient:
   starDataQuery: select+hostname,st_spectype,st_teff,st_rad,st_mass,st_met,st_metratio,st_lum,st_age,st_dens,st_rotp,st_radv,sy_dist+from+pscomppars+order+by+sy_dist
   systemDataQuery: select+pl_name,hostname,pl_letter,discoverymethod,disc_year,pl_orbper,pl_orbsmax,pl_rade,pl_bmasse,pl_dens,pl_orbeccen,pl_eqt,st_spectype,st_teff,st_rad,st_mass,st_met,st_metratio,st_lum,st_age,st_dens,st_rotp,st_radv,sy_dist,ra,dec,glat,glon,elat,elon,sy_snum,sy_pnum,sy_mnum+from+pscomppars+order+by+sy_dist
 
+rest-client:
+  username: admin
+  password: password123
