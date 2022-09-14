@@ -15,6 +15,9 @@ public class StarSystem {
     private double galacticLongitude;
     private double eclipticLatitude;
     private double eclipticLongitude;
+    private double cartX;
+    private double cartY;
+    private double cartZ;
     private double distance;
     private int numPlanets;
     private int numStars;
