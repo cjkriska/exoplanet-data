@@ -6,6 +6,7 @@ import com.charliekriska.exoplanetdata.dto.StarSystemDto;
 import com.charliekriska.exoplanetdata.model.Planet;
 import com.charliekriska.exoplanetdata.model.Star;
 import com.charliekriska.exoplanetdata.model.StarSystem;
+import com.charliekriska.exoplanetdata.utility.CalculationsUtil;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;
@@ -57,6 +58,9 @@ public class ExoPlanetTransformer {
                 .galacticLongitude(dto.getGlon())
                 .eclipticLatitude(dto.getElat())
                 .eclipticLongitude(dto.getElon())
+                .cartX(CalculationsUtil.calcCartX(dto.getGlat(), dto.getGlon(), convertParsecsToLightYears(dto.getSy_dist())))
+                .cartY(CalculationsUtil.calcCartY(dto.getGlat(), dto.getGlon(), convertParsecsToLightYears(dto.getSy_dist())))
+                .cartZ(CalculationsUtil.calcCartZ(dto.getGlat(), dto.getGlon(), convertParsecsToLightYears(dto.getSy_dist())))
                 .distance(convertParsecsToLightYears(dto.getSy_dist()))
                 .numPlanets(dto.getSy_pnum())
                 .numStars(dto.getSy_snum())

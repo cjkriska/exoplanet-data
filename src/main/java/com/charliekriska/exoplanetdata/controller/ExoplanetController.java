@@ -4,12 +4,14 @@ import com.charliekriska.exoplanetdata.model.Planet;
 import com.charliekriska.exoplanetdata.model.Star;
 import com.charliekriska.exoplanetdata.model.StarSystem;
 import com.charliekriska.exoplanetdata.service.ExoPlanetService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("v1")
 public class ExoplanetController {
